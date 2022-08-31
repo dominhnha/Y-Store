@@ -1,0 +1,31 @@
+.login{
+    //min-height: 100vh;
+    background: #f8f8f8;
+    padding: 100px 0;
+    &__title{
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        padding: 10px;
+    }
+    &__from{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 400px;
+        &__btn{
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            color: $secondary-color;
+            background-color: $primary-color;
+            border-radius: 8px;
+            max-width: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+
+}

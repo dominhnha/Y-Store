@@ -1,0 +1,54 @@
+.from{
+    max-width: 450px;
+    margin: 0 auto;
+
+    &__group{
+        position: relative;
+        z-index: 3;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        height:90px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        label{
+            display: block;
+            box-shadow: 0 3px black;
+            margin-bottom: 7px;
+        }
+        input{
+            height: 38px;
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border: none;
+            padding: 5px 10px;
+            &::-ms-value{
+                font-size: medium;
+            }
+        }
+        p{
+            color: red;
+            font-size: 10px;
+            margin-top: 2px;
+        }
+    }
+    &__submit{
+        display: block;
+        cursor: pointer;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        min-width: 150px;
+        min-height: 40px;
+        border-radius: 4px; 
+    }
+    &__Sigin__link{
+        color: black;
+        margin-bottom: 10px;
+        &::hover{
+            transition: all 0.5 ease;
+            color: rgb(68, 68, 68);
+        }
+    }
+}

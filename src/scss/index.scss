@@ -1,0 +1,28 @@
+@import "./reset";
+@import "./variables";
+@import "./mixin";
+@import "./base";
+@import "./components/Icon";
+@import "./components/header";
+@import "./components/Grid";
+@import "./components/Footer";
+
+@import "./components/FromGroup";
+.Home__page{
+    min-height: 200vh;
+   
+}
+html::-webkit-scrollbar {
+    position: fixed;
+    left: 0;
+    width: 5px; 
+}
+
+html::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #4e4e4e;
+  border-radius: 25px;
+}

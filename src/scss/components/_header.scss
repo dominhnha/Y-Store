@@ -1,0 +1,105 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 888;
+    padding: 10px 0;
+    background-color: white;
+    height: $header-height;
+    
+    &__mobile{
+        display: none !important;
+        vertical-align: top;
+        width: 40px;
+        font-size: 25px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        @include tablet{
+            display: block!important ;
+        }
+    }
+    &.active  &__nav{
+        transition: all 0.3s ease;
+        transform: translateX(0);
+    }
+    &__list{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    &__logo{
+        img{
+            max-width: 185px;
+            display: block;
+            @include mobile{
+                max-width: 100px;
+            }
+        }
+    }
+    &__nav{
+        display: flex;
+        align-items: center;
+        @include tablet{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            flex-direction: column;
+            padding: 20px 10px;
+            background-color: white;
+            z-index: 999;
+            transform: translateX(+100%);
+            transition: all 0.3s ease;
+        }
+        &__item{
+            padding: 0 12px;
+            text-transform: uppercase;
+            a{
+                //font-family:"Roboto";
+                display: block;
+                font-size: 18px;
+                font-weight: 500;
+                text-transform: unset;
+                padding: 10px 5px;
+                color: $primary-color;
+            }
+        }
+        &__icon{
+            display: none !important;
+            position: absolute;
+            top:13px;
+            left: 0;
+            width: 40px;
+            font-size: 50px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            @include tablet{
+                display: block !important;
+            }
+        }
+    }
+    &__user{
+        display: flex;
+        justify-content: flex-end;
+        @include tablet{
+            margin-left:auto ;
+        }
+       &__item{
+        list-style: none;
+       }
+    }
+    // &.shrink{
+    //     height: $header-shrink-height;
+    //     padding: 0 ;
+    //     transition: all 0.5s ease;
+    // }
+}
