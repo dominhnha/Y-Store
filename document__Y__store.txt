@@ -1,0 +1,22 @@
+page
++ home 
++ product
++ search
++ profile (user)
++ Heart
++ contact
+//---------function----------//
+// ui moldun 
++ top view
++ mes box
++ find buy value 
++ search
++ one product
++ load more
+//buy
++ CRUD item (updata database )
++ all Price
++ bill PDF
+//---------user------//
++ reLogin
++ logout 

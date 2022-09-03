@@ -90,6 +90,7 @@
     &__user{
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         @include tablet{
             margin-left:auto ;
         }

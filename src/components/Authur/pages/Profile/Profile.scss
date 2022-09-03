@@ -1,0 +1,47 @@
+.Profile{
+    background: #f8f8f8;
+    
+    &__container{
+        display: flex;
+        align-items: center;
+        gap:30px;
+        padding: 20px 0;
+        @media only screen and (max-width: 765px) {
+            flex-direction: column;   
+        }
+        
+    }
+    &__Sidebar{
+        width: 30%;
+        background-color: white;
+        border-radius: 8px;
+        padding: 5px 10px;
+        list-style: none;
+        padding-left:10px ;
+        @media only screen and (max-width: 765px) {
+            width: 100%;   
+        }
+        &__header{
+            display: flex;
+            align-items: center;
+            padding: 20px 0 ;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border-radius: 8px;
+        }
+        &__cand{
+            display: flex;
+            padding: 10px 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+        
+
+    }
+    &__content{
+        width: 70%;
+        @media only screen and (max-width: 765px) {
+            width: 100%;   
+        }
+    }
+}

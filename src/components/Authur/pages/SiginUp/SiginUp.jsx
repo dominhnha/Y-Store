@@ -18,7 +18,7 @@ const SiginUp = props => {
     <section className="login">
         <div className="container">
             <div className="login__form">
-              <h1 className="login__title">Sigin up</h1>
+              <h1 className="login__title">Sign up</h1>
               <SiginFrom
                 handleSubmit={handleSubmit}
               />

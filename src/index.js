@@ -4,10 +4,13 @@ import './scss/index.scss'
 
 import reportWebVitals from './reportWebVitals';
 import Layout from './layout/Layout';
+import AuthurProvider from './contexts/AuthContextProvider'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Layout/>
+    <AuthurProvider>
+      <Layout/>
+    </AuthurProvider>
   </React.StrictMode>
 );
 

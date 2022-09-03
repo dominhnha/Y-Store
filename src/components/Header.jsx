@@ -1,8 +1,14 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Logo from '../assets/images/logo_heyyou.png'
 import { Link } from 'react-router-dom'
 import Icon from './Icon'
+import {useNavigate} from 'react-router-dom'
+import {AUTH__LOGIN} from '../reducers/type'
+import {AuthContext} from '../contexts/AuthContextProvider';
+import auth from '../Firebase__config'
+import Avatar from './Avatar/Avatar'
+
 const Header = props => {
   const navBar = [
     {
@@ -17,6 +23,7 @@ const Header = props => {
       title:'giới thiệu',
       path: '/review',
     }
+    
   ]
 
   const DomHeader  = useRef(null);
@@ -24,20 +31,16 @@ const Header = props => {
   const activeNavbar = ()=>{
       DomHeader.current.classList.toggle('active');
   }
-  //add even scroll in window 
-  // useEffect(() => {
-  //     window.addEventListener("scroll", () => {
-  //         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-  //           DomHeader.current.classList.add('shrink')
-  //         } else {
-  //           DomHeader.current.classList.remove('shrink')
-  //         }
-  //     })
-  //     return () => {
-  //         window.removeEventListener("scroll")
-  //     };
-  // }, []);
+ 
+  // load auth
+  const {Authur} = useContext(AuthContext);
   
+  useEffect(()=>{
+    console.log('auth is header', Authur);
+  },[Authur])
+
+
+ 
   return (
     <header className='header' ref={DomHeader}>
         <div className="container">
@@ -52,7 +55,7 @@ const Header = props => {
                       navBar.map((item, index) => {
                         return (
                           <div className="header__nav__item" key={index}>
-                              <Link to={item.path}>{item.title}</Link>
+                              <Link onClick={()=>activeNavbar()} to={item.path}>{item.title}</Link>
                           </div>
                         )
                       })
@@ -82,13 +85,23 @@ const Header = props => {
                           quantity={3}
                         />
                     </li>
-                    <li className="header__user__item">
+                    {
+                      Authur !== "noLogin"
+                       ?<Avatar
+                          img={Authur.photo__url}
+                          describe={Authur.name}
+                          path={"account/profile"}
+                       />
+                       :
+                       <li className="header__user__item">
                         <Icon
                           icon={"bx bx-user"} 
                           path={"/account/login"}
                           describe={"login"}
                         />
-                    </li>
+                      </li> 
+                    }
+                    
                     
                 </ul>
               <i onClick={()=>activeNavbar()} className='header__mobile bx bx-menu-alt-right'></i>

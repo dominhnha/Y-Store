@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import './SiginUpFrom.scss'
 const LoginFrom = props => {
+  const history = useNavigate();
     const handleSubmit = props.handleSubmit ? props.handleSubmit : undefined;
     const formik = useFormik({
         initialValues: {
@@ -33,6 +34,7 @@ const LoginFrom = props => {
         onSubmit: (values) => {
           
           handleSubmit(values.email, values.password);
+          history("/");
         },
       });
   return (
