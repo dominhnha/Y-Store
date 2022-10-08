@@ -1,0 +1,55 @@
+.ProfileInfo{
+    list-style: none;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    &__header{
+        font-size: 21px;
+        color: black;
+        font-weight: 600;
+    }
+    &__wapper{
+        
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    &__list{
+        list-style: none;
+        width: 100%;
+    }
+    &__cand{
+        display: flex;
+        margin: 20px 0;
+    }
+    &__title{
+        width: 30%;
+    }
+    &__input{
+        width: 70%;
+        padding: 5px;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        background-color: white;
+        border:1px solid transparent;
+
+        &.active{
+            //background-color: rgb(197, 197, 197);
+            transition: all 0.5 ease;
+            border:1px solid black;
+
+        }
+    }
+    &__Button{
+         transition: all 0.5 ease;
+        border: 1px solid back;
+        border-radius: 8px;
+        padding: 5px;
+        cursor: pointer;
+        background-color: white;
+        min-width: 90px ;
+        font-weight: 600;
+    }
+    
+}

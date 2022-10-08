@@ -11,6 +11,10 @@ export const AuthReducer = (state, action) =>{
             console.log("login");
             return state = payload.user;
         }
+        case AUTH__LOGOUT:{
+            console.log("out");
+            return state = "noLogin";
+        }
         default:
             return state;
     }

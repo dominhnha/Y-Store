@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import auth from "../../../../Firebase__config";
 
@@ -8,34 +8,32 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import {  onAuthStateChanged, getAuth } from "firebase/auth";
 import {AuthContext} from '../../../../contexts/AuthContextProvider';
 import {AUTH__LOGIN} from '../../../../reducers/type'
+import { AppGetUserToDatabase, AppsignInWithEmailAndPasswor } from '../../../../api/Authencation/Authencation';
+import Loading from '../../../Loading/Loading';
 const SiginIn = props => {
     const {Authur,dispatch}  = useContext(AuthContext)
+    const [isLoading,setIsloading] = useState(false);
     const handleSubmit =  useCallback(async (email,pass)=>{
         try{
-            //  check valuedation of gamil 
-            const user =await signInWithEmailAndPassword(auth,email,pass)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
+            setIsloading(true);
+            const user = await AppsignInWithEmailAndPasswor(email, pass);
+            const UserInfo = await AppGetUserToDatabase(user.uid);
+            if(user){
                 dispatch({
                     type:AUTH__LOGIN,
                     payload:{
-                      user:{
-                        uid:user.uid,
-                        email:user.email,
-                        name:user.displayName?user.displayName:"Hi you",
-                        photo__url:user.photo__url?user.photoURL:"https://images.pexels.com/photos/2527491/pexels-photo-2527491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                        phoneNumber:user.phoneNumber?user.phoneNumber:"",
-                      }
+                        user:{
+                            uid:user.uid,
+                            UserInfo
+                        }
                     }
-                  })
-                  console.log("new",Authur);
-              });
-            
-            // ---------------------
-           
+                })   
+                console.log(UserInfo)     
+            } 
         } catch(e){
             console.log(e);
+        }finally{
+            setIsloading(false);
         }
     })
     onAuthStateChanged(auth, (currentUser) => {
@@ -43,6 +41,9 @@ const SiginIn = props => {
     })
     return (
     <section className="SiginIn">
+         {
+            isLoading && <Loading/>
+        }
         <div className="conatiner"> 
             <div className="SiginIn__form">
                 <h1 className="SiginIn__title">Sign In</h1>

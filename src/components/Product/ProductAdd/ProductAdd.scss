@@ -1,0 +1,68 @@
+.product{
+    
+    list-style: none;
+    background-color: white;
+    padding: 40px 0;
+    border-radius: 8px;
+    
+    .container{
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &__header{
+        font-size: 21px;
+        color: black;
+        font-weight: 600;
+    }
+    &__from{
+        min-height: 300px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 20px 10px;
+        border-radius: 8px;
+    }
+    &__group{
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+    }
+    &__title{
+        min-width: 50px;
+    }
+    &__input{
+        width: 70%;
+        padding: 5px;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        background-color: white;
+        border:1px solid transparent;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        height: 40px;
+        overflow: hidden;
+        &.active{
+            //background-color: rgb(197, 197, 197);
+            transition: all 0.5 ease;
+            border:1px solid black;
+
+        }
+    }
+    &__submit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        & button{
+            cursor: pointer;
+            min-width: 200px;
+            min-height: 40px;
+            border-radius: 8px;
+            border: 1px solid black;
+            background-color: transparent;
+            color: black;
+        }
+    }
+}

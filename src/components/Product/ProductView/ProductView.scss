@@ -1,0 +1,192 @@
+@import ".../../../../../scss/variables";
+@import ".../../../../../scss/mixin";
+.ProductView{
+    overflow: hidden;
+    // layout
+    &__container{
+       
+    }
+    &__modal{
+        display: flex;
+        gap: 10px;
+        @include tablet{
+            flex-direction: column;
+        }
+    }
+    &__Slider{
+        width: 50%;
+        @include tablet{
+            width: 100%;
+        }
+    }
+    &__Info{
+        width: 50%;
+        @include tablet{
+            width: 100%;
+        }
+    }
+    &__wapper{
+       
+    }
+    // component
+    &__Slider{
+        display: flex;
+        &__list{
+            width: 30%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        &__view{
+            width: 70%;
+        }
+        &__item{
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 8px;
+            border:1px solid transparent;
+            transition: all 0.5s ease;
+            img{
+                object-fit: cover;
+            }
+           
+            
+        }
+        &__item.active{
+            transition: all 0.5s ease;
+            border:1px solid black;
+
+        }
+        &__view{
+            max-height: 550px;
+            img{
+                border-radius: 8px;
+                max-height: 550px;
+                object-fit: cover;
+                transition: all 0.5s ease;
+            }
+            
+        }
+        
+    }
+    &__title{
+        font-size: 24px;
+        font-weight: 600;
+        color: #000;
+        text-transform: capitalize;
+        
+    }
+    &__Type{
+
+    }
+    &__price{
+       
+        span{
+            font-size: 22px;
+            color: #ff0000;
+            font-weight: 600;
+            margin: 10px 15px;
+        }
+    }
+    &__list__size{
+        display: flex;
+        gap: 10px;
+        align-items: center;;
+        margin-top:10px ;
+       
+    }
+    &__button__size{
+        cursor: pointer;
+        display: flex;;
+        align-items: center;;
+        justify-content: center;
+        width: 40px;
+        height:40px;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 8px;
+        border: 1px solid rgb(201, 201, 201);
+        transition: all 0.5s ease;
+    }
+    &__button__size.activer{
+        border: 1px solid #e4393c;
+        transition: all 0.5s ease;
+    }
+    &__list__color{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin:10px  0px;
+
+    }
+    &__color{
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    &__color.activer{
+        border: 2px solid #e4393c;
+        transition: all 0.5s ease;
+    }
+    &__quantity{
+        display: flex;
+        align-items: center;;
+    }
+    &__list__title{
+        min-width: 70px;
+    }
+    &__quantity--title{
+        width: 80px;
+    } 
+
+    &__wapper{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap:10px;
+    }
+    &__button__cart{
+        display: block;
+        margin-right:20px ;
+    }
+    &__button__oder{
+        display: block;
+    }
+    &__bottom{
+        margin-top: 10px;
+        padding: 10px;
+        &__title{
+            font-size: 24px;
+            font-weight: 600;
+            color: #000;
+            text-transform: capitalize;
+            width: max-content;
+            box-shadow: 0 3px black;
+        }
+        
+
+    }
+    &__desc{
+        display: block;
+        margin-top: 5px;
+        padding: 20px;
+        text-align: justify;
+        
+        overflow: hidden;
+        height: 100px;
+        transition:all 0.5s ease;
+       padding-bottom:20px ;
+    }
+    &__desc.activer{
+        transition:all 0.5s ease;
+        height: max-content;
+    }
+    &__loadMore{
+        margin-top: 10px;
+    }
+
+}

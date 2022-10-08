@@ -34,7 +34,7 @@ const LoginFrom = props => {
         onSubmit: (values) => {
           
           handleSubmit(values.email, values.password);
-          history("/");
+          history("/account/login");
         },
       });
   return (

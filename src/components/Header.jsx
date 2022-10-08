@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import Logo from '../assets/images/logo_heyyou.png'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,8 @@ import {AUTH__LOGIN} from '../reducers/type'
 import {AuthContext} from '../contexts/AuthContextProvider';
 import auth from '../Firebase__config'
 import Avatar from './Avatar/Avatar'
+
+import { getDatabase } from 'firebase/database'
 
 const Header = props => {
   const navBar = [
@@ -31,18 +33,35 @@ const Header = props => {
   const activeNavbar = ()=>{
       DomHeader.current.classList.toggle('active');
   }
- 
   // load auth
   const {Authur} = useContext(AuthContext);
-  
-  useEffect(()=>{
-    console.log('auth is header', Authur);
-  },[Authur])
+  const [quantity,setQuantity] = useState(0);
 
+
+  useEffect(() => {
+    const handleQuantity = ()=>{
+      if(Authur == "noLogin"){
+        setQuantity(0);
+      }else if (Authur.UserInfo.product.cart ==null || Authur.UserInfo.product.cart == undefined){
+        setQuantity(0);
+      }else{
+        setQuantity(Object.values(Authur.UserInfo.product.cart).length)
+      }
+    }
+    handleQuantity();
+  
+  }, [Authur])
+  
+  console.log('load auth',Authur);
+
+  
 
  
+  const database = getDatabase();
+  // console.log('database',auth.currentUser.uid);
+ 
   return (
-    <header className='header' ref={DomHeader}>
+    <header className='header' ref={DomHeader}>    
         <div className="container">
             <div className="header__list">
                 <div className="header__logo">
@@ -66,7 +85,7 @@ const Header = props => {
                     <li className="header__user__item">
                         <Icon
                           icon={"bx bx-search"}
-                          path={"/search"}
+                          path={"/shop"}
                           describe={"Search"}
                         />
                     </li>
@@ -75,21 +94,21 @@ const Header = props => {
                           icon={"bx bxs-heart"}
                           path={"/heart"}
                           describe={"Heart"}
-                        />
+                        />  
                     </li>
                     <li className="header__user__item">
                         <Icon
                           icon={"bx bx-cart-alt"}
-                          path={"/search"}
+                          path={Authur !== "noLogin" ? "/account/profile/cart" : "account/login"}
                           describe={"Cart"}
-                          quantity={3}
+                          quantity={quantity}
                         />
                     </li>
                     {
                       Authur !== "noLogin"
                        ?<Avatar
-                          img={Authur.photo__url}
-                          describe={Authur.name}
+                          img={`${Authur.UserInfo.profile.profile_picture}`}
+                          describe={`${Authur.UserInfo.profile.username}`}
                           path={"account/profile"}
                        />
                        :

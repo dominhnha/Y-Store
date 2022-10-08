@@ -1,0 +1,28 @@
+.ProfileCard{
+    min-height: 80vh;
+    list-style: none;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    &__header{
+        font-size: 21px;
+        color: black;
+        font-weight: 600;
+        border-bottom:2px solid black;
+    }
+    &__wapper{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    &__list{
+        min-height: 200px;
+        width: 100%;
+        //box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius:8px;
+        padding: 20px;
+        //background-color: antiquewhite;
+    }
+
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Grid from './Grid'
+import Grid from './Grid/Grid'
 import { Link } from 'react-router-dom'
 import Page from '../assets/images/page.jpg'
 function Footer(props) {

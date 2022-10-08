@@ -12,12 +12,14 @@
         
     }
     &__Sidebar{
+        
         width: 30%;
         background-color: white;
         border-radius: 8px;
         padding: 5px 10px;
         list-style: none;
         padding-left:10px ;
+        margin-bottom: auto;
         @media only screen and (max-width: 765px) {
             width: 100%;   
         }
@@ -43,5 +45,8 @@
         @media only screen and (max-width: 765px) {
             width: 100%;   
         }
+    }
+    p{
+        color: black;
     }
 }

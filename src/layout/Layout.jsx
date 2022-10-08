@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types'
 import { BrowserRouter, Route } from 'react-router-dom'
 import MainRoutes from '../routes/MainRoutes'
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+const Header = React.lazy(() => import('../components/Header'));
+const Footer = React.lazy(() => import('../components/Footer'));
+const Loading = React.lazy(() => import('../components/Loading/Loading'));
+
 const Layout = props => {
   return (
     <BrowserRouter>
         {/*  thêm cái components header ở đây thì nó load ko gồi kết luôn  */}
-        <Header/>
+        <Suspense fallback={<Loading/>}>
+          <Header/>
             <main>
                 <MainRoutes/>
             </main>
-        <Footer/>
+          <Footer/>
+        </Suspense>
+        
     </BrowserRouter>
   )
 }
